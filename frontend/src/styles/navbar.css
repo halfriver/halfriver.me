@@ -1,0 +1,30 @@
+@import 'tailwindcss';
+
+.navbar-icon {
+    color: --alpha(var(--color-white) / 60%);
+}
+.navbar-icon:hover {
+    color: --alpha(var(--color-white) / 90%);
+}
+.navbar-icon:dark {
+    color: --alpha(var(--color-seagreen-200) / 60%);
+}
+.navbar-icon:hover:dark {
+    color: --alpha(var(--color-seagreen-200) / 90%);
+}
+
+/* toggled while lightmode */
+#darkmode-toggle {
+    background-color: --alpha(var(--color-seagreen-200) / 60%);
+    border-color: transparent;
+    border-width: 2px;
+}
+
+/* toggled while darkmode */
+#darkmode-toggle:checked {
+    background-color: transparent;
+    border-color: --alpha(var(--color-seagreen-200) / 60%);
+}
+.toggle::before {
+  background-color: var(--color-white);
+}
