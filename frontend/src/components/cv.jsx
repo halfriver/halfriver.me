@@ -28,8 +28,8 @@ export default function CV() {
         
       </div>
 
-      {/* timeline placeholder */}
-      <div className="max-w-5xl section-content mt-6">
+      {/* timeline placeholder - commented out for now */}
+      {/* <div className="max-w-5xl section-content mt-6">
         <div className="filter mb-6">
           <input className="btn border-transparent text-offwhite bg-seagreen-400 hover:bg-seagreen-500 dark:text-black-700 dark:bg-seagreen-300 hover:dark:bg-seayellow-600 filter-reset" type="radio" name="metaframeworks" aria-label="All"/>
           <input className="btn border-transparent text-offwhite bg-seagreen-400 hover:bg-seagreen-500 dark:text-black-700 dark:bg-seagreen-300 hover:dark:bg-seayellow-600" type="radio" name="metaframeworks" aria-label="Sveltekit"/>
@@ -149,7 +149,7 @@ export default function CV() {
             </div>
           </li>
         </ul>
-      </div>
+      </div> */}
     </section>
   );
 }

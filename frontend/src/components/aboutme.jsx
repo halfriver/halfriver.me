@@ -1,7 +1,7 @@
 import '../styles/navbar.css';
 import Headshot from "../assets/KaykoHeadshots-6.jpg";
-import Fish from "../assets/placeholder1.png";
-import LightFish from "../assets/placeholder1_light.png";
+import Fish from "../assets/topfish_dark.png";
+import LightFish from "../assets/topfish_light.png";
 import { useTheme, useLanguage } from "../Context";
 
 export default function AboutMe() {
