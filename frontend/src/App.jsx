@@ -1,13 +1,23 @@
 import { useState, useEffect } from 'react';
-import { useLanguage } from "./Context";
+import { useTheme, useLanguage } from "./Context";
 import NavBar from "./components/navbar";
 import AboutMe from "./components/aboutme";
 import CV from "./components/cv";
 import Contact from "./components/contact";
+import Divider from "./components/divider";
+
+// Top Divider
+import TopFish_Light from "./assets/topfish_light.png";
+import TopFish_Dark from "./assets/topfish_dark.png";
+
+// Bottom Divider
+import BottomFish_Light from "./assets/placeholder2_light.png";
+import BottomFish_Dark from "./assets/placeholder2.png";
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("aboutme");
   const { lang, t } = useLanguage();
+  const { dark } = useTheme();
 
   // page title according to language selected
   useEffect(() => {
@@ -68,7 +78,9 @@ export default function App() {
     <NavBar activeSection={activeSection} scrollToSection={scrollToSection} />
     <main className="bg-seagreen-300 text-black-700 dark:bg-seablue-800 dark:text-seagreen-200">
       <AboutMe />
+      <Divider image={dark ? TopFish_Dark : TopFish_Light} />
       <CV />
+      <Divider image={dark ? BottomFish_Dark : BottomFish_Light} />
       <Contact />
     </main>
   </div>
