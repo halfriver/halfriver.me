@@ -118,7 +118,6 @@ fg {
 	display: inline-block;
 	text-indent: 0px;
 	line-height: normal;
-  -webkit-text-emphasis: none;
 	text-align: center;
 	line-height: 1;
 }

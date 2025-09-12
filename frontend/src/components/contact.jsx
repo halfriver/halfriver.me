@@ -39,7 +39,7 @@ export default function Contact() {
       </div>
 
       {/* copyright */}
-      <div className="w-6xl my-16 text-right text-xs">
+      <div className="block w-full p-4 my-16 text-right text-xs">
         © 2025 Kayko Ohkawa
       </div>
 
