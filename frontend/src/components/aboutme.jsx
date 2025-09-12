@@ -1,5 +1,4 @@
-import '../styles/navbar.css';
-import Headshot from "../assets/KaykoHeadshots-6.jpg";
+import Headshot from "../assets/KaykoHeadshots.jpg";
 import { useLanguage } from "../Context";
 
 export default function AboutMe() {

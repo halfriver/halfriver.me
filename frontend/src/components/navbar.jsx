@@ -1,5 +1,5 @@
 import '../styles/navbar.css';
-import takanoha from '../assets/takanoha_v4.png';
+import takanoha from '../assets/takanoha.png';
 import { useState, useEffect, useRef } from "react";
 import { useLanguage, useTheme } from "../Context";
 import { Languages, Menu, Mail, Github } from "lucide-react";
@@ -46,11 +46,17 @@ export default function NavBar({ activeSection, scrollToSection }) {
         {/* left items */}
         <div className="px-6">
           <ul className="flex items-center space-x-4">
+
+            {/* logo */}
             <li className="pr-2">
               <a href="/">
-                <img id="takanoha" src={takanoha} title='halfriver.me' alt="takanoha logo" className="h-12 w-auto" />
+                <img id="takanoha" src={takanoha} title='halfriver.me' alt="takanoha logo" className={`${
+                  scrolled ? "h-10 w-10" : "h-12 w-12"
+                }`} />
               </a>
             </li>
+
+            {/* section nav links */}
             {navItems.map(({ id, default: text, hover }) => (
               <li key={id}>
                 <button
