@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTheme, useLanguage } from "./Context";
+
+// Website Components
 import NavBar from "./components/navbar";
 import AboutMe from "./components/aboutme";
 import CV from "./components/cv";

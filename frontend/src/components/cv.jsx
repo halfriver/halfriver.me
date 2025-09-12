@@ -10,11 +10,11 @@ export default function CV() {
       <div className="section-content">
 
         {/* resume download subsection */}
-        <div className="max-w-4xl subsection-content border-4 border-seagreen-200 dark:border-seablue-600"> 
+        <div className="max-w-md md:max-w-2xl lg:max-w-4xl subsection-content border-4 border-seagreen-200 dark:border-seablue-600"> 
           <div className="flex flex-col md:flex-row gap-6 px-4 items-center">
 
             {/* blurb */}
-            <div className="w-full">
+            <div className="w-full text-center md:text-left">
               <h6>{ t.cv.blurb }</h6>
             </div>
 

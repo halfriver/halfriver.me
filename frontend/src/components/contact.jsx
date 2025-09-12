@@ -1,10 +1,6 @@
-import '../styles/navbar.css';
-import Fish from "../assets/placeholder2.png";
-import LightFish from "../assets/placeholder2_light.png";
 import { useTheme, useLanguage } from '../Context'; 
 
 export default function Contact() {
-  const { dark } = useTheme();
   const { lang, setLang, t } = useLanguage();
 
   return (

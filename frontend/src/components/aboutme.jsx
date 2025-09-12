@@ -7,19 +7,24 @@ export default function AboutMe() {
   return (
     <section id="aboutme" className="flex flex-col items-center justify-center">
       {/* decorative header */}
-      <div className="h-120 text-center">decorative header</div>
+      <div className="h-[25rem] text-center">decorative header</div>
 
       {/* content */}
-      <div className="max-w-6xl section-content text-black-700 dark:text-seagreen-200">
-        <div className="subsection-content text-left text-base">
-          {/* Floated image */}
+      <div className="max-w-md md:max-w-2xl lg:max-w-6xl section-content text-black-700 dark:text-seagreen-200">
+        <div className="subsection-content lg:text-left lg:text-base">
+          
+          {/* Headshot image */}
           <img
             src={Headshot}
             alt="Portrait"
-            className="float-left mr-6 mb-4 max-w-sm object-cover object-center rounded-sm"
+            className="
+              block mx-auto mb-4 max-w-xs object-cover object-center rounded-sm
+              lg:float-left lg:mr-6 lg:mb-4 lg:max-w-sm lg:mx-0
+            "
           />
 
-          <div className="subsection-content bg-seagreen-200 dark:bg-seablue-600 ml-102 mb-6">
+          {/* Highlighted text */}
+          <div className="subsection-content bg-seagreen-200 dark:bg-seablue-600 lg:ml-102 my-6 lg:mt-0">
             <div className="px-6 my-2 ml-4 text-left border-l-3 border-l-seagreen-400/80 dark:border-l-seayellow-600/80">
               <h5 dangerouslySetInnerHTML={{ __html: t.about.intro }} />
             </div>

@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import 'tailwindcss';
-/* @custom-variant dark (&:where(.dark, .dark *)); */
 @custom-variant dark (&:where(.dark, [data-theme="dark"], .dark *, [data-theme="dark"] *));
 @plugin 'daisyui';
 
@@ -61,11 +60,7 @@ body {
 }
 
 a {
-  /* text-decoration: none; */
   font-weight: 600;
-}
-a:hover {
-  /* text-decoration: none; */
 }
 
 .btn {

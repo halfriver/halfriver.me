@@ -51,7 +51,7 @@ export default function NavBar({ activeSection, scrollToSection }) {
             <li className="pr-2">
               <a href="/">
                 <img id="takanoha" src={takanoha} title='halfriver.me' alt="takanoha logo" className={`${
-                  scrolled ? "h-10 w-10" : "h-12 w-12"
+                  scrolled ? "h-8 w-8 sm:h-10 sm:w-10" : "h-10 w-10 sm:h-12 sm:w-12"
                 }`} />
               </a>
             </li>
