@@ -1,22 +1,14 @@
 import '../styles/navbar.css';
 import Headshot from "../assets/KaykoHeadshots-6.jpg";
-import Fish from "../assets/topfish_dark.png";
-import LightFish from "../assets/topfish_light.png";
-import { useTheme, useLanguage } from "../Context";
+import { useLanguage } from "../Context";
 
 export default function AboutMe() {
-  const { dark } = useTheme();
   const { lang, setLang, t } = useLanguage();
 
   return (
     <section id="aboutme" className="flex flex-col items-center justify-center">
       {/* decorative header */}
       <div className="h-120 text-center">decorative header</div>
-
-      {/* header */}
-      {/* <div className="max-w-5xl text-center text-seagreen-400 dark:text-seayellow-600 ">
-        <h4 className="text-5xl m-6 mt-12">about me</h4>
-      </div> */}
 
       {/* content */}
       <div className="max-w-6xl section-content text-black-700 dark:text-seagreen-200">
@@ -42,10 +34,6 @@ export default function AboutMe() {
           {/* Clear float so the next section doesn’t slide beside the image */}
           <div className="clear-both" />
         </div>
-      </div>
-
-      <div className="mb-16">
-        <img src={dark ? Fish : LightFish} alt="divider" className="max-w-[15rem] object-cover object-center"/>
       </div>
     </section>
   );

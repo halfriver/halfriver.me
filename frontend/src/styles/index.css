@@ -103,7 +103,6 @@ b {
 }
 
 .section-content {
-  margin-bottom: calc(var(--spacing) * 8);
   padding: calc(var(--spacing) * 8);
   border-radius: 0.25rem;
 }

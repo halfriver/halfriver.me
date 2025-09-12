@@ -6,29 +6,31 @@ export default function CV() {
   const { lang, setLang, t } = useLanguage();
   
   return (
-    <section id="cv" className="flex flex-col items-center justify-center text-black-700 dark:text-seagreen-200">
-      {/* header */}
-      {/* <div className="max-w-5xl text-center text-seagreen-400 dark:text-seayellow-600">
-        <h4 className=" m-6 mt-12">curriculum vitae</h4>
-      </div> */}
+    <section id="cv" className="flex flex-col items-center justify-center text-black-700 dark:text-seagreen-200 py-5">
+      <div className="section-content">
 
-      {/* resume pdf download */}
-      <div className="mt-12 max-w-4xl subsection-content border-4 border-seagreen-200 dark:border-seablue-600"> 
-        <div className="flex flex-col md:flex-row gap-6 px-4 items-center">
-          <div className="w-full">
-            <h6>{ t.cv.blurb }</h6>
-          </div>
+        {/* resume download subsection */}
+        <div className="max-w-4xl subsection-content border-4 border-seagreen-200 dark:border-seablue-600"> 
+          <div className="flex flex-col md:flex-row gap-6 px-4 items-center">
 
-          <div>
-            <a href={ MyResume } target="_blank" className="btn border-transparent text-offwhite bg-seagreen-400 hover:bg-seagreen-500 dark:text-black-700 dark:bg-seagreen-300 hover:dark:bg-seayellow-600" title="OhkawaResume.pdf" rel="noreferrer">
-              { t.cv.button } <SquareArrowOutUpRight className="ml-2" />
-            </a>
+            {/* blurb */}
+            <div className="w-full">
+              <h6>{ t.cv.blurb }</h6>
+            </div>
+
+            {/* button */}
+            <div>
+              <a href={ MyResume } target="_blank" className="btn border-transparent text-offwhite bg-seagreen-400 hover:bg-seagreen-500 dark:text-black-700 dark:bg-seagreen-300 hover:dark:bg-seayellow-600" title="OhkawaResume.pdf" rel="noreferrer">
+                { t.cv.button } <SquareArrowOutUpRight className="ml-2" />
+              </a>
+            </div>
           </div>
+          
         </div>
-        
+
+        {/* timeline */}
       </div>
 
-      {/* timeline placeholder - commented out for now */}
       {/* <div className="max-w-5xl section-content mt-6">
         <div className="filter mb-6">
           <input className="btn border-transparent text-offwhite bg-seagreen-400 hover:bg-seagreen-500 dark:text-black-700 dark:bg-seagreen-300 hover:dark:bg-seayellow-600 filter-reset" type="radio" name="metaframeworks" aria-label="All"/>
@@ -140,7 +142,7 @@ export default function CV() {
                   clipRule="evenodd" />
               </svg>
             </div>
-            <div className="timeline-start mb-10 md:text-end">
+            <div className="timeline-start md:text-end">
               <time className="font-mono italic">2015</time>
               <div className="text-lg font-black">Apple Watch</div>
               The Apple Watch is a line of smartwatches produced by Apple Inc. It incorporates fitness

@@ -8,12 +8,7 @@ export default function Contact() {
   const { lang, setLang, t } = useLanguage();
 
   return (
-    <section id="contact" className="flex flex-col items-center justify-center text-black-700 dark:text-seagreen-200">
-      {/* divider */}
-      <div className="mb-16">
-        <img src={dark ? Fish : LightFish} alt="divider" className="max-w-[7.5rem] object-cover object-center"/>
-      </div>
-      
+    <section id="contact" className="flex flex-col items-center justify-center text-black-700 dark:text-seagreen-200"> 
 
       <div className="max-w-lg text-center mt-12">
         <div className="max-w-5xl text-center text-seagreen-400 dark:text-seayellow-600">
