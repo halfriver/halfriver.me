@@ -1,0 +1,27 @@
+# BLOCK 1: Redirects all HTTP traffic to HTTPS
+server {
+    listen 80;
+    server_name halfriver.me;
+
+    # This sends a permanent redirect to the HTTPS version
+    return 301 https://$host$request_uri;
+}
+
+# BLOCK 2: Serves your React application over HTTPS
+server {
+    listen 443 ssl;
+    server_name halfriver.me;
+
+    # IMPORTANT: Find these two lines in your OLD config and copy them here.
+    # They point to your SSL certificate for HTTPS to work.
+    ssl_certificate /etc/letsencrypt/live/halfriver.me/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/halfriver.me/privkey.pem;
+
+    # --- Your new static site settings ---
+    root /home/django/halfriver.me/dist;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}

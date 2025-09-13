@@ -30,16 +30,6 @@ export default function NavBar({ activeSection, scrollToSection }) {
     setDark(hasDark);
   }, [setDark]);
 
-  // // Track scroll state
-  // const [scrolled, setScrolled] = useState(false);
-  // useEffect(() => {
-  //   const onScroll = () => {
-  //     setScrolled(window.scrollY > 260);
-  //   };
-  //   window.addEventListener("scroll", onScroll);
-  //   return () => window.removeEventListener("scroll", onScroll);
-  // }, []);
-
   // Viewport-relative scroll threshold for consistent shrink behavior
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.25);
@@ -66,20 +56,49 @@ export default function NavBar({ activeSection, scrollToSection }) {
           {/* logo */}
           <a href="#" className="mr-2 sm:mr-4 shrink-0">
             <img id="takanoha" src={takanoha} title='halfriver.me' alt="takanoha logo" className={`${
-              scrolled ? "ml-1 h-10 w-10" : "h-12 w-12"
+              scrolled ? "mx-1 h-8 w-8 sm:h-10 sm:w-10" : "h-10 w-10 sm:h-12 sm:w-12"
             }`} />
           </a>
 
-          {/* Mobile hamburger */}
-          <button
-            className="lg:hidden p-2 sm:mx-2 navbar-icon"
-            aria-label="Open menu"
-            aria-expanded={isOpen}
-            aria-controls="mobile-nav"
-            onClick={() => setIsOpen((v) => !v)}
-          >
-            <Menu width={40} height={40} />
-          </button>
+          {/* Mobile Nav */}
+          <details id='mobile-nav' className="lg:hidden sm:mx-2 dropdown mr-2" title='Section Select'>
+            <summary className="block navbar-icon cursor-pointer px-2 py-1">
+              <Menu width={30} height={30} />
+            </summary>
+            <ul
+              className="menu dropdown-content rounded-box z-[1] mt-2 shadow bg-seagreen-200 dark:bg-seablue-700 w-45"
+              role="menu"
+              aria-label="Choose language"
+            >
+              {navItems.map(({ id, default: text, hover }) => (
+                <li key={id}>
+                  <button
+                    onClick={() => {
+                      scrollToSection(id);
+                      setIsOpen(false);
+                    }}
+                    aria-current={activeSection === id ? "page" : undefined}
+                    className={`group text-left text-md hover:bg-seagreen-100 dark:hover:bg-seablue-600 ${
+                      activeSection === id
+                        ? "text-seagreen-500 dark:text-seagreen-200 font-semibold"
+                        : "text-seagreen-500 dark:text-seagreen-200/80 font-light"
+                    }`}
+                  >
+                    {/* default text */}
+                    <span className="absolute inset-0 flex items-center justify-center group-hover:opacity-0">
+                      {text}
+                    </span>
+                    {/* hover text */}
+                    <span className="cursor-pointer absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                      {hover}
+                    </span>
+                    {/* layout placeholder */}
+                    <span className="invisible font-semibold px-2">{text}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </details>
 
           {/* Desktop nav */}
           <ul className="hidden lg:flex items-center space-x-4 ml-2">
@@ -88,7 +107,7 @@ export default function NavBar({ activeSection, scrollToSection }) {
                 <button
                   onClick={() => scrollToSection(id)}
                   aria-current={activeSection === id ? "page" : undefined}
-                  className={`group relative text-base text-lg py-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-seagreen-200 ${
+                  className={`group relative text-base text-lg py-3 ${
                     activeSection === id
                       ? "text-offwhite dark:text-seagreen-200 font-normal"
                       : "text-offwhite/90 dark:text-seagreen-200/80 font-thin"
@@ -174,7 +193,7 @@ export default function NavBar({ activeSection, scrollToSection }) {
           </details>
 
           {/* darkmode toggle */}
-          <label className="grid cursor-pointer place-items-center" title='Light/Dark Mode Toggle'>
+          <label className="grid cursor-pointer place-items-center" title='Dark Mode Toggle'>
             <input id="darkmode-toggle" type="checkbox" className="toggle toggle-lg col-span-2 col-start-1 row-start-1" checked={dark} onChange={toggleDark} />
 
             {/* sun icon */}
@@ -201,37 +220,35 @@ export default function NavBar({ activeSection, scrollToSection }) {
             </svg>
           </label>
         </div>
-
-
       </div>
-              {/* Mobile slide-down links (shown when hamburger open) */}
-        <div
-          id="mobile-nav"
-          className={`lg:hidden overflow-hidden transition-[max-height] duration-300 ${
-            isOpen ? "max-h-64" : "max-h-0"
-          }`}
-        >
-          <ul className="px-1 pb-3 space-y-1">
-            {navItems.map(({ id, default: text }) => (
-              <li key={id}>
-                <button
-                  onClick={() => {
-                    scrollToSection(id);
-                    setIsOpen(false);
-                  }}
-                  aria-current={activeSection === id ? "page" : undefined}
-                  className={`block w-full text-left py-2 text-base focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-seagreen-200 ${
-                    activeSection === id
-                      ? "text-offwhite dark:text-seagreen-200 font-medium"
-                      : "text-offwhite/90 dark:text-seagreen-200/80"
-                  }`}
-                >
-                  {text}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
+      {/* Mobile slide-down links (shown when hamburger open) */}
+      {/* <div
+        id="mobile-nav"
+        className={`lg:hidden px-2 ml-25 rounded-sm overflow-hidden transition-[max-height] duration-300 shadow bg-seagreen-200 dark:bg-seablue-700 w-50 ${
+          isOpen ? "max-h-64" : "max-h-0"
+        }`}
+      >
+        <ul className="px-1 pb-3">
+          {navItems.map(({ id, default: text }) => (
+            <li key={id}>
+              <button
+                onClick={() => {
+                  scrollToSection(id);
+                  setIsOpen(false);
+                }}
+                aria-current={activeSection === id ? "page" : undefined}
+                className={`block w-full text-left py-2 text-base hover:bg-seagreen-100 dark:hover:bg-seablue-600 ${
+                  activeSection === id
+                    ? "text-offwhite dark:text-seagreen-200 font-medium"
+                    : "text-offwhite/90 dark:text-seagreen-200/80"
+                }`}
+              >
+                {text}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div> */}
     </nav>
   );
 }

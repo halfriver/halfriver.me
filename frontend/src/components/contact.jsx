@@ -39,8 +39,12 @@ export default function Contact() {
       </div>
 
       {/* copyright */}
-      <div className="block w-full p-4 my-16 text-right text-xs">
-        © 2025 Kayko Ohkawa
+      <div className="w-full">
+        <div className="max-w-6xl mx-auto flex justify-end">
+          <div className="p-4 my-16 text-xs">
+            © 2025 Kayko Ohkawa
+          </div>
+        </div>
       </div>
 
       {/* decorative footer */}
