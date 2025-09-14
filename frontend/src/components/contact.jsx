@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <section id="contact" className="flex flex-col items-center justify-center text-black-700 dark:text-seagreen-200"> 
 
-      <div className="max-w-lg text-center mt-12">
+      {/* <div className="max-w-lg text-center mt-12">
         <div className="max-w-5xl text-center text-seagreen-400 dark:text-seayellow-600">
           <h4 className="mb-6">{ t.contact.title }</h4>
         </div>
@@ -36,7 +36,7 @@ export default function Contact() {
             Send Message
           </button>
         </form>
-      </div>
+      </div> */}
 
       {/* copyright */}
       <div className="w-full">
