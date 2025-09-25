@@ -13,13 +13,13 @@ export default function AboutMe() {
       <div className="max-w-md md:max-w-2xl lg:max-w-6xl section-content text-black-700 dark:text-seagreen-200">
         <div className="subsection-content lg:text-left lg:text-base">
           
-          {/* Headshot image */}
+          {/* Headshot photo */}
           <img
             src={Headshot}
             alt="Portrait"
             className="
-              block mx-auto mb-4 max-w-xs object-cover object-center rounded-sm
-              lg:float-left lg:mr-6 lg:mb-4 lg:max-w-sm lg:mx-0
+              block mx-auto mb-4 max-w-3xs object-cover object-center rounded-sm
+              md:max-w-xs lg:float-left lg:mr-6 lg:mb-4 lg:max-w-sm lg:mx-0
             "
           />
 

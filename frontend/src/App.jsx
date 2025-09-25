@@ -82,7 +82,7 @@ export default function App() {
       <AboutMe />
       <Divider image={dark ? TopFish_Dark : TopFish_Light} width="max-w-[15rem]" />
       <CV />
-      <Divider image={dark ? BottomFish_Dark : BottomFish_Light} width="max-w-[18rem]" />
+      <Divider image={dark ? BottomFish_Dark : BottomFish_Light} width="max-w-[17rem]" />
       <Contact />
     </main>
   </div>
