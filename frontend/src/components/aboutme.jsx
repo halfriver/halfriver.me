@@ -1,4 +1,4 @@
-import Headshot from "../assets/KaykoHeadshots.jpg";
+import Headshot from "../assets/2025_KaykoHeadshot_sm.png";
 import { useLanguage } from "../Context";
 
 export default function AboutMe() {
