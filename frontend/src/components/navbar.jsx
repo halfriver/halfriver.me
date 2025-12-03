@@ -51,7 +51,7 @@ export default function NavBar({ activeSection, scrollToSection }) {
 
   return (
     <nav id="navbar" className={`fixed top-0 left-0 w-full overflow-x-clip shadow-md z-50 transition-all duration-500 ease-in-out ${
-      scrolled ? "bg-seagreen-400 dark:bg-seablue-900 h-15" : "bg-seagreen-400/65 dark:bg-seablue-900/65 h-20"
+      scrolled ? "bg-seagreen-400 dark:bg-seablue-900 h-15" : "bg-seagreen-400 dark:bg-seablue-900 h-20"
       }`}
     > 
       <div className="max-w-6xl mx-auto flex justify-between items-center h-full px-4 sm:px-6">
@@ -91,7 +91,7 @@ export default function NavBar({ activeSection, scrollToSection }) {
                   >
                     {/* default text */}
                     <span className="absolute inset-0 flex items-center justify-center group-hover:opacity-0">
-                      {text}
+                      {hover}
                     </span>
                     {/* hover text */}
                     <span className="cursor-pointer absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100">
@@ -138,10 +138,10 @@ export default function NavBar({ activeSection, scrollToSection }) {
         <div className="flex items-center text-lg space-x-2">
 
           {/* box icons */}
-          <div className={`flex items-center p-2 rounded-sm transition-colors duration-500 border-2 
+          <div className={`flex items-center p-2 transition-colors duration-500 border-2 
             ${scrolled 
               ? "border-offwhite/15 dark:border-seagreen-200/15 border-r-2 border-t-0 border-l-0 border-b-0" 
-              : "border-offwhite/15 dark:border-seagreen-200/15" 
+              : "border-offwhite/15 dark:border-seagreen-200/15 rounded-sm" 
             }`}
           >
             <a className="px-2 sm:px-3 py-1 navbar-icon fill-offwhite" href="https://github.com/halfriver" title='GitHub' target="_blank" rel="noreferrer">

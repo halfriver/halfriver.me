@@ -7,6 +7,8 @@ import AboutMe from "./components/aboutme";
 import CV from "./components/cv";
 import Contact from "./components/contact";
 import Divider from "./components/divider";
+import Top from "./components/top";
+import Bottom from "./components/bottom";
 
 // Top Divider
 import TopFish_Light from "./assets/topfish_light.png";
@@ -76,14 +78,16 @@ export default function App() {
   }, []);
 
   return (
-  <div className="scrollbar">
+  <div className="scrollbar overflow-hidden">
     <NavBar activeSection={activeSection} scrollToSection={scrollToSection} />
     <main className="bg-seagreen-300 text-black-700 dark:bg-seablue-800 dark:text-seagreen-200">
+      <Top />
       <AboutMe />
       <Divider image={dark ? TopFish_Dark : TopFish_Light} width="max-w-[15rem]" />
       <CV />
       <Divider image={dark ? BottomFish_Dark : BottomFish_Light} width="max-w-[17rem]" />
       <Contact />
+      <Bottom />
     </main>
   </div>
 );

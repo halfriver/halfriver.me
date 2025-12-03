@@ -46,9 +46,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-
-      {/* decorative footer */}
-      <div className="h-80 items-center">decorative footer</div>
     </section>
   );
 }
