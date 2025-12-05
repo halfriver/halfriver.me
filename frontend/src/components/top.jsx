@@ -1,30 +1,106 @@
-import seigaiha_light from "../assets/seigaiha_lightblue.png";
+// lightmode seigaiha 
+import seigaiha_light from "../assets/seigaiha_top_light.png";
+import seigaiha_light_offset from "../assets/seigaiha_top_light_offset.png";
+import seigaiha_light_alt from "../assets/seigaiha_top_light_alt.png";
+import seigaiha_light_alt2 from "../assets/seigaiha_top_light_alt2.png";
+import seigaiha_light_offset_alt from "../assets/seigaiha_top_light_offset_alt.png";
+import takanoha from '../assets/takanoha_blue.png';
+
+// darkmode seigaiha
+import seigaiha_dark from "../assets/seigaiha_top_light.png";
+import seigaiha_dark_offset from "../assets/seigaiha_top_light_offset.png";
+import seigaiha_dark_alt from "../assets/seigaiha_top_light_alt.png";
+import seigaiha_dark_alt2 from "../assets/seigaiha_top_light_alt2.png";
+import seigaiha_dark_offset_alt from "../assets/seigaiha_top_light_offset_alt.png";
+
+// consider darkmode
+import { useTheme } from "../Context";
 
 export default function TopHeader() {
+    const { dark } = useTheme();
+
+    const bgs = dark 
+        ? [ seigaiha_light,
+            seigaiha_light_alt,
+            seigaiha_light_alt2 ]
+        : [ seigaiha_dark,
+            seigaiha_dark_alt,
+            seigaiha_dark_alt2 ]
+
+    const bgs_off = dark 
+        ? [ seigaiha_light_offset,
+            seigaiha_light_offset_alt ]
+        : [ seigaiha_dark_offset,
+            seigaiha_dark_offset_alt ] 
+
     return (
-        <section id="top-header" className="relative -mb-50"
-            style={{
-                WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, transparent 100%)",
-                WebkitMaskRepeat: "no-repeat",
-                WebkitMaskSize: "100% 100%",
-                maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, transparent 100%)",
-                maskRepeat: "no-repeat",
-                maskSize: "100% 100%",
-            }}
-        >
-            <div className="grid grid-cols-1">
-            <div className="min-h-18 bg-contain bg-[url(../assets/seigaiha_lightblue2.png)] bg-center bg-repeat -my-4"/>
-            <div className="min-h-18 bg-contain bg-[url(../assets/seigaiha_lightblue2_offset.png)] bg-center bg-repeat -my-4"/>
-            <div className="min-h-18 bg-contain bg-[url(../assets/seigaiha_lightblue2.png)] bg-center bg-repeat -my-4"/>
-            <div className="min-h-18 bg-contain bg-[url(../assets/seigaiha_lightblue2_offset.png)] bg-center bg-repeat -my-4"/>
-            <div className="min-h-18 bg-contain bg-[url(../assets/seigaiha_lightblue2.png)] bg-center bg-repeat -my-4"/>
-            <div className="min-h-18 bg-contain bg-[url(../assets/seigaiha_lightblue2_offset.png)] bg-center bg-repeat -my-4"/>
-            <div className="min-h-18 bg-contain bg-[url(../assets/seigaiha_lightblue2.png)] bg-center bg-repeat -my-4"/>
-            <div className="min-h-18 bg-contain bg-[url(../assets/seigaiha_lightblue2_offset.png)] bg-center bg-repeat -my-4"/>
-            <div className="min-h-18 bg-contain bg-[url(../assets/seigaiha_lightblue2.png)] bg-center bg-repeat -my-4"/>
-            <div className="min-h-18 bg-contain bg-[url(../assets/seigaiha_lightblue2_offset.png)] bg-center bg-repeat -my-4"/>
-            <div className="min-h-18 bg-contain bg-[url(../assets/seigaiha_lightblue2.png)] bg-center bg-repeat -my-4"/>
-            <div className="min-h-18 bg-contain bg-[url(../assets/seigaiha_lightblue2_offset.png)] bg-center bg-repeat -my-4"/>
+        <section id="top-header" className="relative -mb-50">
+            <div className="flex flex-col">
+                {/* top banner takanoha */}
+                <div className="grid grid-cols-1">
+                    <div className={"w-full flex justify-center mt-[15rem] absolute"}>
+                        <img src={takanoha} className="w-[4rem] object-cover object-center" />
+                    </div>
+                </div>
+                {/* treetop */}
+                <div className="grid grid-cols-1">
+                    {Array.from({ length: 5 }).map((_, i) => {
+                        const evenIndex = Math.floor(i / 2) % bgs.length;
+                        const oddIndex  = Math.floor(i / 2) % bgs_off.length;
+
+                        const bg = i % 2 === 0 
+                            ? bgs[ evenIndex ] 
+                            : bgs_off[ oddIndex ];
+                        
+                        const flip = i % 4 === 0 ? "-scale-x-100" : ""; 
+                        
+                        return (
+                            <div
+                                key={i}
+                                className={`h-18 bg-contain bg-center bg-repeat-x -my-4 ${flip}`}
+                                style={{ 
+                                    backgroundImage: `url(${bg})`,
+                                    backgroundSize: "auto 100%"
+                                }}
+                            />
+                        );
+                    })}
+                </div>
+            </div>
+            
+            {/* treetop split */}
+            <div className="flex flex-col mb-20">
+            {Array.from({ length: 7 }).map((_, i) => {
+                const bg = bgs[ i % bgs.length ];
+                const flip_left = i % 4 === 0 ? "-scale-x-100 bg-left" : "bg-right"; 
+                const flip_right = i % 4 === 0 ? "-scale-x-100 bg-right" : "bg-left"; 
+
+                return (
+                <div
+                    key={i}
+                    className="grid grid-cols-2"
+                    style={{ columnGap: `${i * 9.4 + 9.4}rem` }}   // gap increases per iteration
+                >
+                    {/* left column */}
+                    <div
+                    className={`h-18 bg-contain bg-repeat-x -my-4 ${flip_left}`}
+                    style={{
+                        backgroundImage: `url(${bg})`,
+                        backgroundSize: "auto 100%", 
+                    }}
+                    />
+
+                    {/* right column */}
+                    <div
+                    className={`h-18 bg-contain bg-repeat-x -my-4 ${flip_right}`}
+                    style={{
+                        backgroundImage: `url(${bg})`,
+                        backgroundSize: "auto 100%",
+                    }}
+                    />
+                </div>
+                );
+            })}
             </div>
         </section>
     );

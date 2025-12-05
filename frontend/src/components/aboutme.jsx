@@ -5,7 +5,7 @@ export default function AboutMe() {
   const { lang, setLang, t } = useLanguage();
 
   return (
-    <section id="aboutme" className="flex flex-col items-center justify-center relative">
+    <section id="aboutme" className="flex flex-col items-center justify-center relative ">
       {/* decorative header */}
       {/* <div className="h-[25rem] text-center">decorative header</div> */}
 

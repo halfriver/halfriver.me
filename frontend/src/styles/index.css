@@ -100,7 +100,7 @@ b {
 }
 
 .section-content {
-  padding: calc(var(--spacing) * 8);
+  padding: 0 calc(var(--spacing) * 8);
   border-radius: 0.25rem;
 }
 
