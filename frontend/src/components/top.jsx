@@ -4,7 +4,7 @@ import seigaiha_light_offset from "../assets/seigaiha_top_light_offset.png";
 import seigaiha_light_alt from "../assets/seigaiha_top_light_alt.png";
 import seigaiha_light_alt2 from "../assets/seigaiha_top_light_alt2.png";
 import seigaiha_light_offset_alt from "../assets/seigaiha_top_light_offset_alt.png";
-import takanoha from '../assets/takanoha_blue.png';
+import takanoha_light from '../assets/takanoha_light.png';
 
 // darkmode seigaiha
 import seigaiha_dark from "../assets/seigaiha_top_light.png";
@@ -12,6 +12,7 @@ import seigaiha_dark_offset from "../assets/seigaiha_top_light_offset.png";
 import seigaiha_dark_alt from "../assets/seigaiha_top_light_alt.png";
 import seigaiha_dark_alt2 from "../assets/seigaiha_top_light_alt2.png";
 import seigaiha_dark_offset_alt from "../assets/seigaiha_top_light_offset_alt.png";
+import takanoha_dark from '../assets/takanoha_dark.png';
 
 // consider darkmode
 import { useTheme } from "../Context";
@@ -33,31 +34,35 @@ export default function TopHeader() {
         : [ seigaiha_dark_offset,
             seigaiha_dark_offset_alt ] 
 
+    const takanoha = dark 
+        ? takanoha_dark
+        : takanoha_light
+
     return (
         <section id="top-header" className="relative -mb-50">
             <div className="flex flex-col">
                 {/* top banner takanoha */}
                 <div className="grid grid-cols-1">
-                    <div className={"w-full flex justify-center mt-[15rem] absolute"}>
+                    <div className={"w-full flex justify-center mt-[18rem] absolute"}>
                         <img src={takanoha} className="w-[4rem] object-cover object-center" />
                     </div>
                 </div>
                 {/* treetop */}
                 <div className="grid grid-cols-1">
-                    {Array.from({ length: 5 }).map((_, i) => {
+                    {Array.from({ length: 6 }).map((_, i) => {
                         const evenIndex = Math.floor(i / 2) % bgs.length;
                         const oddIndex  = Math.floor(i / 2) % bgs_off.length;
 
                         const bg = i % 2 === 0 
-                            ? bgs[ evenIndex ] 
-                            : bgs_off[ oddIndex ];
+                            ? bgs_off[ oddIndex ] 
+                            : bgs[ evenIndex ] ;
                         
                         const flip = i % 4 === 0 ? "-scale-x-100" : ""; 
                         
                         return (
                             <div
                                 key={i}
-                                className={`h-18 bg-contain bg-center bg-repeat-x -my-4 ${flip}`}
+                                className={`h-18 drop-shadow-lg bg-contain bg-center bg-repeat-x -my-4 ${flip}`}
                                 style={{ 
                                     backgroundImage: `url(${bg})`,
                                     backgroundSize: "auto 100%"
@@ -83,7 +88,7 @@ export default function TopHeader() {
                 >
                     {/* left column */}
                     <div
-                    className={`h-18 bg-contain bg-repeat-x -my-4 ${flip_left}`}
+                    className={`h-18 drop-shadow-lg bg-contain bg-repeat-x -my-4 ${flip_left}`}
                     style={{
                         backgroundImage: `url(${bg})`,
                         backgroundSize: "auto 100%", 
@@ -92,7 +97,7 @@ export default function TopHeader() {
 
                     {/* right column */}
                     <div
-                    className={`h-18 bg-contain bg-repeat-x -my-4 ${flip_right}`}
+                    className={`h-18 drop-shadow-lg bg-contain bg-repeat-x -my-4 ${flip_right}`}
                     style={{
                         backgroundImage: `url(${bg})`,
                         backgroundSize: "auto 100%",

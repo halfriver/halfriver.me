@@ -10,17 +10,22 @@ import Top from "./components/top";
 import Bottom from "./components/bottom";
 
 // Top Divider
-import TopFish_Light from "./assets/fish_top_light.png";
-import TopFish_Dark from "./assets/fish_top_dark.png";
+import Divider_Top_Fish_Light from "./assets/divider_fish_1_light.png";
+import Divider_Top_Wave_Light from "./assets/divider_wave_1_light.png";
+import Divider_Top_Fish_Dark from "./assets/divider_fish_1_dark.png";
+import Divider_Top_Wave_Dark from "./assets/divider_wave_1_dark.png";
 
 // Bottom Divider
-import BottomFish_Light from "./assets/fish_bottom_light.png";
-import BottomFish_Dark from "./assets/fish_bottom_dark.png";
+import Divider_Bottom_Fish_Light from "./assets/divider_fish_2_light.png";
+import Divider_Bottom_Wave_Light from "./assets/divider_wave_2_light.png";
+import Divider_Bottom_Fish_Dark from "./assets/divider_fish_2_dark.png";
+import Divider_Bottom_Wave_Dark from "./assets/divider_wave_2_dark.png";
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("aboutme");
   const { lang, t } = useLanguage();
   const { dark } = useTheme();
+  const [scrollY, setScrollY] = useState(0);
 
   // page title according to language selected
   useEffect(() => {
@@ -44,9 +49,13 @@ export default function App() {
 
     let ticking = false;
 
-    const updateActive = () => {
+    const updateOnScroll = () => {
+      const yScroll = window.scrollY;
+      setScrollY(yScroll); // drives parallax
+
       const y = window.scrollY + navH + 1; // line just below navbar
       let current = ids[0];
+
       for (const id of ids) {
         const el = document.getElementById(id);
         if (!el) continue;
@@ -60,7 +69,7 @@ export default function App() {
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(() => {
-        updateActive();
+        updateOnScroll();
         ticking = false;
       });
     };
@@ -68,7 +77,7 @@ export default function App() {
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
     // run once on mount
-    updateActive();
+    updateOnScroll();
 
     return () => {
       window.removeEventListener("scroll", onScroll);
@@ -82,9 +91,19 @@ export default function App() {
     <main className="bg-seagreen-300 text-black-700 dark:bg-seablue-800 dark:text-seagreen-200">
       <Top />
       <AboutMe />
-      <Divider image={dark ? TopFish_Dark : TopFish_Light} width="max-w-[15rem]" />
+      <Divider 
+        image_fish={dark ? Divider_Top_Fish_Dark : Divider_Top_Fish_Light} 
+        image_wave={dark ? Divider_Top_Wave_Dark : Divider_Top_Wave_Light} 
+        scroll={scrollY} 
+        posit="top"
+      />
       <CV />
-      <Divider image={dark ? BottomFish_Dark : BottomFish_Light} width="max-w-[17rem]" />
+      <Divider 
+        image_fish={dark ? Divider_Bottom_Fish_Dark : Divider_Bottom_Fish_Light} 
+        image_wave={dark ? Divider_Bottom_Wave_Dark : Divider_Bottom_Wave_Light} 
+        scroll={scrollY} 
+        posit="bot"
+      />
       <Bottom />
     </main>
   </div>
