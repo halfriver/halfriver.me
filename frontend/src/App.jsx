@@ -5,7 +5,6 @@ import { useTheme, useLanguage } from "./Context";
 import NavBar from "./components/navbar";
 import AboutMe from "./components/aboutme";
 import CV from "./components/cv";
-import Contact from "./components/contact";
 import Divider from "./components/divider";
 import Top from "./components/top";
 import Bottom from "./components/bottom";
