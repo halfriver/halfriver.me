@@ -6,7 +6,7 @@ import NavBar from "./components/navbar";
 import AboutMe from "./components/aboutme";
 import CV from "./components/cv";
 import Divider from "./components/divider";
-import Top from "./components/top";
+import Top from "./components/top test";
 import Bottom from "./components/bottom";
 
 // Top Divider
@@ -89,7 +89,7 @@ export default function App() {
   <div className="scrollbar overflow-hidden">
     <NavBar activeSection={activeSection} scrollToSection={scrollToSection} />
     <main className="bg-seagreen-300 text-black-700 dark:bg-seablue-800 dark:text-seagreen-200">
-      <Top />
+      <Top scroll={scrollY} />
       <AboutMe />
       <Divider 
         image_fish={dark ? Divider_Top_Fish_Dark : Divider_Top_Fish_Light} 

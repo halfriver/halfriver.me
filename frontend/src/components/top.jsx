@@ -17,7 +17,7 @@ import takanoha_dark from '../assets/takanoha_dark.png';
 // consider darkmode
 import { useTheme } from "../Context";
 
-export default function TopHeader() {
+export default function TopHeader({ scroll }) {
     const { dark } = useTheme();
 
     const bgs = dark 
@@ -62,7 +62,7 @@ export default function TopHeader() {
                         return (
                             <div
                                 key={i}
-                                className={`h-18 drop-shadow-lg bg-contain bg-center bg-repeat-x -my-4 ${flip}`}
+                                className={`h-18 drop-shadow-xl/25 bg-contain bg-center bg-repeat-x -my-4 ${flip}`}
                                 style={{ 
                                     backgroundImage: `url(${bg})`,
                                     backgroundSize: "auto 100%"
@@ -88,7 +88,7 @@ export default function TopHeader() {
                 >
                     {/* left column */}
                     <div
-                    className={`h-18 drop-shadow-lg bg-contain bg-repeat-x -my-4 ${flip_left}`}
+                    className={`h-18 drop-shadow-xl/25 bg-contain bg-repeat-x -my-4 ${flip_left}`}
                     style={{
                         backgroundImage: `url(${bg})`,
                         backgroundSize: "auto 100%", 
@@ -97,7 +97,7 @@ export default function TopHeader() {
 
                     {/* right column */}
                     <div
-                    className={`h-18 drop-shadow-lg bg-contain bg-repeat-x -my-4 ${flip_right}`}
+                    className={`h-18 drop-shadow-xl/25 bg-contain bg-repeat-x -my-4 ${flip_right}`}
                     style={{
                         backgroundImage: `url(${bg})`,
                         backgroundSize: "auto 100%",

@@ -30,6 +30,7 @@ export default function Divider({ image_fish, image_wave, scroll, posit}) {
 
   return (
     <div ref={ref} className={"w-full relative justify-center pt-[1rem] pb-[3rem] lg:pt-[3rem] min-h-[10rem]"}>
+      {/* fish (above) */}
       <img 
         id={`divider-fish-${posit}`}
         src={image_fish} 
@@ -40,6 +41,8 @@ export default function Divider({ image_fish, image_wave, scroll, posit}) {
           transition: "transform 0.15s ease-out"
         }}
       />
+
+      {/* wave (beneath) */}
       <img 
         id={`divider-wave-${posit}`}
         src={image_wave} 

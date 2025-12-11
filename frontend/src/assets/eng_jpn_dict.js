@@ -6,13 +6,38 @@ export const dict = {
       intro: "I'm Kayko Ohkawa, a data scientist with 4 years of experience, currently working for PNC Bank in Customer & Marketing Analytics.", 
       body: [
         "My academic background spans economics, geology, and data science, disciplines that don't often sit side by side, but together give me a broad toolkit for solving problems. Professionally, I'm especially interested in building efficient, scalable workflows that span the full pipeline of data, from rough and raw to generating insights that drive strategy.",
-        "Outside of work, that same curiosity leads me in different directions.I boulder, study Japanese, and care for a household of pets that includes not only a dog and cat but also fish and snakes. I'm <a href='https://nasar.org/' target='_blank'>NASAR</a> certified in Search & Rescue and Wilderness First Aid, which are volunteer activities that let me enjoy the Appalacian hills and forests while also helping others. I also enjoy gaming and fantasy worlds, both of which feed my love for creative problem-solving and exploration.",
+        "Outside of work, that same curiosity leads me in different directions.I boulder, study Japanese, and care for a household of pets that includes not only a dog and cat but also fish and snakes. I'm <a href='https://nasar.org/' target='_blank'>NASAR</a> certified in Search & Rescue and Wilderness First Aid, which are volunteer activities that let me enjoy the Appalachian hills and forests while also helping others. I also enjoy gaming and fantasy worlds, both of which feed my love for creative problem-solving and exploration.",
         "Whether it's working with data, climbing a route, or caring for animals, the common threads for me are curiosity and creativity. I'm motivated by the challenge of finding connections across disciplines and experiences, and by the excitement of always learning something new."
       ],
     },
-    cv: { title: "curriculum vitae", 
+    cv: { 
+      title: "curriculum vitae", 
       blurb: "Access my resume for a detailed record of my roles, projects, and academic background.", 
       button: "View Resume PDF",
+      tagLabel: ["education","career","project","personal"],
+      timeline: [
+        {
+          date: "December 2025",
+          title: "Certificate in Data Science",
+          tags: ["education"],
+          image: "",
+          body: "A 5-month Executive Education program through Carnegie Mellon University, sponsored by PNC Bank, including 2 hours of synchronous instruction weekly, 3 full in-person days, and a group capstone project spanning the duration and serving real stakeholders within the bank."
+        },
+        {
+          date: "August 2024",
+          title: "Got a cat!",
+          tags: ["personal"],
+          image: "",
+          body: "My brother found her in an alleyway next to his house."
+        },
+        {
+          date: "May 2023",
+          title: "Certificate in Geographic Information Systems",
+          tags: ["education"],
+          image: "",
+          body: "Pennsylvania State University"
+        },
+      ]
     },
     contact: { title: "contact", body: "I'd love to connect! Feel free to reach out." },
   },
@@ -27,9 +52,34 @@ export const dict = {
         "データ分析であれ、ルート登攀であれ、動物の世話であれ、私にとって共通する糸は好奇心と創造性です。異なる分野や経験の間に繋がりを見出す挑戦と、常に新たなことを学ぶ興奮が、私の原動力となっています。"
       ],
     },
-    cv: { title: "履歴書",
+    cv: { 
+      title: "履歴書",
       blurb: "詳細な職務内容・担当プロジェクト・学歴については、私の履歴書をご参照ください。",
       button: "履歴書PDFを表示",
+      tagLabel: ["education","career","project","personal"],
+      timeline: [
+        {
+          date: "2025年12月",
+          title: "Certificate in Data Science",
+          tags: ["education"],
+          image: "",
+          body: "カーネギーメロン大学が主催し、PNC銀行が後援する5か月間のエグゼクティブ教育プログラムを修了した。プログラム内容は、週2時間の同期型授業、3日間の対面集中セッション、およびプログラム期間を通じて実施された銀行内の実際のステークホルダーを対象とした包括的なグループプロジェクトで構成されていた。"
+        },
+        {
+          date: "2024年08月",
+          title: "Got a cat!",
+          tags: ["personal"],
+          image: "",
+          body: "My brother found her in an alleyway next to his house."
+        },
+        {
+          date: "2023年05月",
+          title: "Certificate in Geographic Information Systems",
+          tags: ["education"],
+          image: "",
+          body: "ペンシルベニア州立大学"
+        },
+      ]
     },
     contact: { title: "連絡先", body: "いつもありがとうございます。 ご質問やお問い合わせは、以下のリンクからお願いします。"},
   },
